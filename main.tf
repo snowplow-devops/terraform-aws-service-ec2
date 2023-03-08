@@ -86,7 +86,7 @@ resource "aws_autoscaling_group" "asg" {
 
   launch_template {
     id      = aws_launch_template.lt.id
-    version = "$Latest"
+    version = aws_launch_template.lt.latest_version
   }
 
   health_check_grace_period = var.health_check_grace_period_sec
