@@ -93,7 +93,6 @@ resource "aws_autoscaling_group" "asg" {
   health_check_type         = var.health_check_type
 
   vpc_zone_identifier = var.subnet_ids
-  target_group_arns   = var.target_group_arns
 
   metrics_granularity = "1Minute"
   enabled_metrics     = ["GroupInServiceInstances"]
@@ -106,7 +105,19 @@ resource "aws_autoscaling_group" "asg" {
     triggers = ["tag"]
   }
 
+  lifecycle {
+    ignore_changes = [
+      [load_balancers, target_group_arns]
+    ]
+  }
+
   tags = module.tags.asg_tags
+}
+
+resource "aws_autoscaling_attachment" "asa" {
+  for_each               = var.target_group_arns
+  autoscaling_group_name = aws_autoscaling_group.asg.id
+  lb_target_group_arn    = each.value
 }
 
 # --- CloudWatch: Scaling
