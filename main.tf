@@ -106,7 +106,14 @@ resource "aws_autoscaling_group" "asg" {
     triggers = ["tag"]
   }
 
-  tags = module.tags.asg_tags
+  dynamic "tag" {
+    for_each = module.tags.asg_tags
+    content {
+      key                 = tag.value.key
+      propagate_at_launch = tag.value.propagate_at_launch
+      value               = tag.value.value
+    }
+  }
 }
 
 # --- CloudWatch: Scaling
