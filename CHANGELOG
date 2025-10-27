@@ -1,3 +1,7 @@
+Version 0.3.1 (2025-10-27)
+--------------------------
+Fix Docker install on Amazon Linux 2023
+
 Version 0.3.0 (2025-10-27)
 --------------------------
 Upgrade to Amazon Linux 2023 (#8)
