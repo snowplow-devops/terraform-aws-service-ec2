@@ -43,7 +43,7 @@ A Terraform module which forms the base of all `ec2` deployments for Snowplow OS
 | <a name="input_instance_type"></a> [instance\_type](#input\_instance\_type) | The instance type to use | `string` | n/a | yes |
 | <a name="input_name"></a> [name](#input\_name) | A name which will be pre-pended to the resources created | `string` | n/a | yes |
 | <a name="input_ssh_key_name"></a> [ssh\_key\_name](#input\_ssh\_key\_name) | The name of the SSH key-pair to attach to all EC2 nodes deployed | `string` | n/a | yes |
-| <a name="input_subnet_ids"></a> [subnet\_ids](#input\_subnet\_ids) | The list of subnets to deploy Enrich across | `list(string)` | n/a | yes |
+| <a name="input_subnet_ids"></a> [subnet\_ids](#input\_subnet\_ids) | The list of subnets to deploy across | `list(string)` | n/a | yes |
 | <a name="input_user_supplied_script"></a> [user\_supplied\_script](#input\_user\_supplied\_script) | The user-data script extension to execute | `string` | n/a | yes |
 | <a name="input_amazon_linux_2023_ami_id"></a> [amazon\_linux\_2023\_ami\_id](#input\_amazon\_linux\_2023\_ami\_id) | The AMI ID to use which must be based of of Amazon Linux 2023; by default the latest community version is used | `string` | `""` | no |
 | <a name="input_associate_public_ip_address"></a> [associate\_public\_ip\_address](#input\_associate\_public\_ip\_address) | Whether to assign a public ip address to this instance | `bool` | `true` | no |
