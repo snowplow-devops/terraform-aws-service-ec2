@@ -4,12 +4,12 @@ locals {
   })
 }
 
-data "aws_ami" "amazon_linux_2" {
+data "aws_ami" "amazon_linux_2023" {
   most_recent = true
 
   filter {
     name   = "name"
-    values = ["amzn2-ami-hvm-*-x86_64-ebs"]
+    values = ["al2023-ami-2023.*-x86_64"]
   }
 
   filter {
@@ -30,7 +30,7 @@ data "aws_ami" "amazon_linux_2" {
 resource "aws_launch_template" "lt" {
   name_prefix = "${var.name}-"
 
-  image_id      = var.amazon_linux_2_ami_id == "" ? data.aws_ami.amazon_linux_2.id : var.amazon_linux_2_ami_id
+  image_id      = var.amazon_linux_2023_ami_id == "" ? data.aws_ami.amazon_linux_2023.id : var.amazon_linux_2023_ami_id
   instance_type = var.instance_type
   key_name      = var.ssh_key_name
 
