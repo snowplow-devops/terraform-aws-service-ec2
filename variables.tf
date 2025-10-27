@@ -106,7 +106,7 @@ variable "health_check_type" {
 }
 
 variable "subnet_ids" {
-  description = "The list of subnets to deploy Enrich across"
+  description = "The list of subnets to deploy across"
   type        = list(string)
 }
 
