@@ -1,3 +1,7 @@
+Version 0.3.2 (2025-10-28)
+--------------------------
+Add kernal filter for AMI lookup
+
 Version 0.3.1 (2025-10-27)
 --------------------------
 Fix Docker install on Amazon Linux 2023
