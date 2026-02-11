@@ -7,7 +7,28 @@ exec > >(tee /var/log/user-data.log|logger -t user-data -s 2>/dev/console) 2>&1
 # -----------------------------------------------------------------------------
 
 function install_docker_ce() {
-  sudo dnf install docker -y
+  local max_attempts=10
+  local sleep_time=5
+  local __attempt_num=1
+  local __success=false
+
+  while [ $__success = false ] && [ $__attempt_num -le $max_attempts ]; do
+    echo "Attempting dnf install docker (attempt $__attempt_num of $max_attempts)..."
+    if sudo dnf install docker -y; then
+      echo "dnf install docker succeeded"
+      __success=true
+    else
+      echo "Attempt $__attempt_num failed. Sleeping for $sleep_time seconds and trying again..."
+      sleep $sleep_time
+      ((__attempt_num++))
+    fi
+  done
+
+  if [ $__success = false ]; then
+    echo "Failed to install docker after $max_attempts attempts"
+    exit 1
+  fi
+
   sudo systemctl start docker
   sudo systemctl enable docker
   sudo usermod -a -G docker ec2-user
