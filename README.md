@@ -77,7 +77,7 @@ A Terraform module which forms the base of all `ec2` deployments for Snowplow OS
 
 # Copyright and license
 
-The Terraform AWS Service on EC2 project is Copyright 2023-2023 Snowplow Analytics Ltd.
+The Terraform AWS Service on EC2 project is Copyright 2023-current Snowplow Analytics Ltd.
 
 Licensed under the [Apache License, Version 2.0][license] (the "License");
 you may not use this software except in compliance with the License.
