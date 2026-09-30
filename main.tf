@@ -73,7 +73,7 @@ resource "aws_launch_template" "lt" {
 
 module "tags" {
   source  = "snowplow-devops/tags/aws"
-  version = "0.2.0"
+  version = "0.2.2"
 
   tags = var.tags
 }
