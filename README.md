@@ -21,7 +21,7 @@ A Terraform module which forms the base of all `ec2` deployments for Snowplow OS
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_tags"></a> [tags](#module\_tags) | snowplow-devops/tags/aws | 0.2.0 |
+| <a name="module_tags"></a> [tags](#module\_tags) | snowplow-devops/tags/aws | 0.2.2 |
 
 ## Resources
 
